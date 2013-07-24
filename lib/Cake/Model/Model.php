@@ -1629,7 +1629,7 @@ class Model extends Object implements CakeEventListener {
 			$this->whitelist = array();
 		}
 		$this->set($data);
-
+		
 		if (empty($this->data) && !$this->hasField(array('created', 'updated', 'modified'))) {
 			$this->whitelist = $_whitelist;
 			return false;
@@ -1752,7 +1752,7 @@ class Model extends Object implements CakeEventListener {
 				$this->updateCounterCache($cache, $created);
 			}
 		}
-
+		
 		if (!empty($joined) && $success === true) {
 			$this->_saveMulti($joined, $this->id, $db);
 		}
