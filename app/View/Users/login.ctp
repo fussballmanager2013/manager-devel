@@ -10,4 +10,5 @@
 <?php echo $this->Form->end(__('Login')); ?>
 </div>
 
-<?php echo $this->Html->link('Register', '/Users/add/'); ?>
+<?php echo $this->Html->link('Register', '/Users/add/'); ?><br/>
+<?php echo $this->Html->link('Index', '/Users/index/'); ?>

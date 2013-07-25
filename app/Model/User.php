@@ -1,12 +1,9 @@
-<?php 
+<?php
 
 App::uses('AuthComponent', 'Controller/Component');
 
 // app/Model/User.php
 class User extends AppModel {
-
-	//public $useTable = 'T_USER';
-	//public $primaryKey = 'ID_USER';
 
     public $validate = array(
         'username' => array(
@@ -36,19 +33,14 @@ class User extends AppModel {
             )
         )
     );
-	
+
 	public function beforeSave($options = array()) {
 		if (isset($this->data[$this->alias]['password'])) {
 			$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
 		}
-		
-		//$this->data[$this->alias]['status'] = 1;
-		//$this->data[$this->alias]['lastlogin'] = time();
-		//$this->data[$this->alias]['creationdate'] = time();
-		
-		pr($this->data);
+
 		return true;
-	}	
+	}
 
 }
 

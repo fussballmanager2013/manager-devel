@@ -7,7 +7,7 @@ class UsersController extends AppController {
 	public $components = array(
         'Session',
         'Auth' => array(
-            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
+            'loginRedirect' => array('controller' => 'pages', "action" => "index"),
             'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')
         )
     );
@@ -31,9 +31,9 @@ class UsersController extends AppController {
     }
 
     public function add() {
-	
+
 		//pr($this->request);
-		
+
         if ($this->request->is('post')) {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
@@ -68,7 +68,7 @@ class UsersController extends AppController {
          //   throw new MethodNotAllowedException();
         }
         $this->User->id = $id;
-		
+
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
@@ -78,22 +78,22 @@ class UsersController extends AppController {
         }
         $this->Session->setFlash(__('User was not deleted'));
         $this->redirect(array('action' => 'index'));
-		
+
 		if($this->Session->read("Auth.User.id") == $id){
 			$this->logout();
 		}
     }
-	
+
 	public function show() {
 		$users = $this->User->find('all');
 		$this->set('users', $users);
 	}
-	
+
 	public function login() {
 
 		if ($this->request->is('post')) {
 			if ($this->Auth->login()) {
-				$this->redirect($this->Auth->redirect());
+				$this->redirect("/users/");
 			} else {
 				$this->Session->setFlash(__('Invalid username or password, try again'));
 			}
@@ -103,7 +103,7 @@ class UsersController extends AppController {
 	public function logout() {
 		$this->redirect($this->Auth->logout());
 	}
-	
+
 }
 
 ?>

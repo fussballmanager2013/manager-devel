@@ -1,3 +1,5 @@
+<?php   ?>
+
 Add User
 <br>
 
@@ -11,5 +13,5 @@ Add User
 		echo $this->Form->input('email');
     ?>
     </fieldset>
-<?php echo $this->Form->end(__('Login')); ?>
+<?php echo $this->Form->end(__('Register')); ?>
 </div>
