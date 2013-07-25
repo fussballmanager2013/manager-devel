@@ -43,7 +43,41 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
 		</div>
 		<div id="content">
+			<p>
+				<h2>Account erstellen</h2>
+				 <p> Menü  | Optionen</p>
+			</p>
+			<div style="padding: 20px 10px 10px 50px">
 
+				<div style="width:150px;height200px; border:2px solid black; float:left; padding:20px">
+				  
+					<form>
+						Nickname: <input type="text" name="nickname"><br>
+						Vorname: <input type="text" name="firstname"><br>
+						Nachname: <input type="text" name="lastname"><br>
+						Mailadresse: <input type="text" name="mail"><br>
+						Mailadresse wiederholen:: <input type="text" name="mail2"><br>
+						Passwort: <input type="text" name="password"><br>
+						Passwort wiederholen: <input type="text" name="password2"><br>
+					</form>
+					</div>
+
+					<div style="width:200px; height:200px; border:2px solid black; float:left; padding: 10px;  margin-left: 50px">
+						<h3>Profilbild</h3>
+						<p>Name: Max Manager</p>
+						<form name="input" action="html_form_action.asp" method="get">
+							<input type="submit" value="Hochladen">
+						</form>
+					</div>
+					<div style="width:500px; height200px; border:2px solid black; float:left; padding:20px; margin-top: 100px">
+					  <h3>Ich stimme den AGBs zu: </h3>
+					<form>
+						<input type="checkbox" name="vehicle" value="Bike"> akzeptieren<br>
+					</form>
+				</div>
+			</div>
+	
+		
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>
